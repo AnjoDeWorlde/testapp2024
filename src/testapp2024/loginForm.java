@@ -44,9 +44,10 @@ public class loginForm extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        create = new javax.swing.JLabel();
         password = new javax.swing.JTextField();
         username = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        login = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +68,16 @@ public class loginForm extends javax.swing.JFrame {
         jPanel2.add(jLabel3);
         jLabel3.setBounds(10, 10, 100, 90);
 
+        create.setForeground(new java.awt.Color(255, 0, 0));
+        create.setText("create new..");
+        create.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                createMouseClicked(evt);
+            }
+        });
+        jPanel2.add(create);
+        create.setBounds(30, 210, 70, 14);
+
         jPanel1.add(jPanel2);
         jPanel2.setBounds(20, 0, 100, 300);
 
@@ -86,14 +97,14 @@ public class loginForm extends javax.swing.JFrame {
         jPanel1.add(username);
         username.setBounds(120, 120, 120, 30);
 
-        jButton1.setText("LOGIN");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        login.setText("LOGIN");
+        login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loginActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(160, 210, 100, 30);
+        jPanel1.add(login);
+        login.setBounds(160, 210, 100, 30);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,7 +129,7 @@ public class loginForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_usernameActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
         if(loginAcc(username.getText(),password.getText())){
             JOptionPane.showMessageDialog(null, "Login Success!");
             adminDashy up = new adminDashy();
@@ -127,7 +138,13 @@ public class loginForm extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Login Failed!");
         }  
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_loginActionPerformed
+
+    private void createMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createMouseClicked
+        registrationForm up = new registrationForm();
+        up.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_createMouseClicked
 
     /**
      * @param args the command line arguments
@@ -165,12 +182,13 @@ public class loginForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel create;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton login;
     private javax.swing.JTextField password;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
